@@ -105,17 +105,16 @@ public class MemberDAO {
 		return vo;
 	}
 
-	public int update(String user_id, String user_pw) {
+	public int update(String user_pw) {
 
 		try {
 			connection();
 
-			String sql = "update users where id=?";
+			String sql = "update users where pw=?";
 
 			pst = conn.prepareStatement(sql);
 
-			pst.setString(1, user_id);
-			pst.setString(2, user_pw);
+			pst.setString(1, user_pw);
 
 			cnt = pst.executeUpdate();
 

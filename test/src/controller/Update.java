@@ -31,7 +31,7 @@ public class Update extends HttpServlet {
 		
 		MemberDAO dao = new MemberDAO();
 		
-		int cnt = dao.update(user_id, user_pw);
+		int cnt = dao.update(user_pw);
 		
 		if (cnt > 0) {
 
