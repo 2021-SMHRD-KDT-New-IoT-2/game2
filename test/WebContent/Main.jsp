@@ -27,7 +27,7 @@
 	%>
 	<div class="wrap">
         <div class="circle">
-            <a href="#"><span>GAME START</span></a>
+            <a href="GamePlay.jsp"><span>GAME START</span></a>
         </div>
         
         <div class="tri">
@@ -45,7 +45,7 @@
         <%}else{ %>
         <div class="squ" style="width:400px;'">
             <div style="width:200px">
-                <a href="Main.jsp">마이페이지</a>
+                <a href="MyPage.jsp">마이페이지</a>
             </div>
             <div style="width:200px">
                 <a href="Logout">로그아웃</a>
