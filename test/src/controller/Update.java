@@ -22,7 +22,7 @@ public class Update extends HttpServlet {
 		
 		MemberVO vo = (MemberVO)session.getAttribute("member");
 		
-		String id = vo.getUser_id();
+		String pw = vo.getUser_pw();
 		
 		String user_no = request.getParameter("user_no");
 		String user_id = request.getParameter("user_id");
