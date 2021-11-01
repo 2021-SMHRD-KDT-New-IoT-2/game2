@@ -30,7 +30,6 @@ public class MemberDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("연결실패");
 		}
 	}
 
@@ -67,7 +66,6 @@ public class MemberDAO {
 			cnt = pst.executeUpdate();
 
 		} catch (Exception e) {
-			System.out.println("가입실패");
 			e.printStackTrace();
 		} finally {
 			close();
@@ -90,8 +88,6 @@ public class MemberDAO {
 			rs = pst.executeQuery(); 
 
 			if (rs.next()) {
-				System.out.println("로그인성공!");
-
 		        String get_userno = rs.getString("user_no");
 	            String get_userid = rs.getString("user_id");
 	            String get_userpw = rs.getString("user_pw");
@@ -99,10 +95,9 @@ public class MemberDAO {
 				vo = new MemberVO(get_userno, get_userid, get_userpw);
 
 			} else {
-				System.out.println("로그인실패!");
+				
 			}
 		} catch (Exception e) {
-			System.out.println("로그인실패!");
 			e.printStackTrace();
 		} finally {
 			close();
@@ -110,85 +105,82 @@ public class MemberDAO {
 		return vo;
 	}
 
-//	public int update(String id, String pw, String nick) {
-//
-//		try {
-//			connection();
-//
-//			String sql = "update web_member where id=?";
-//
-//			pst = conn.prepareStatement(sql);
-//
-//			pst.setString(1, id);
-//			pst.setString(2, pw);
-//
-//			cnt = pst.executeUpdate();
-//
-//		} catch (Exception e) {
-//			System.out.println("수정실패");
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		return cnt;
-//	}
-//
-//	public ArrayList<MemberVO> selectAll() {
-//
-//		al = new ArrayList<MemberVO>();
-//
-//		try {
-//			connection();
-//
-//			String sql = "select id, pw from web_member";
-//
-//			pst = conn.prepareStatement(sql);
-//
-//			rs = pst.executeQuery();
-//
-//			while (rs.next()) {
-//
-//				String get_id = rs.getString("id");
-//				String get_pw = rs.getString("pw");
-//				String get_nick = rs.getString("nick");
-//
-//				vo = new MemberVO(get_id, get_pw, get_nick);
-//
-//				al.add(vo);
-//			}
-//
-//		} catch (Exception e) {
-//			System.out.println("조회실패!");
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		return al;
-//	}
-//
-//	public int delete(String id) {
-//
-//		try {
-//			connection();
-//
-//			String sql = "delete from web_member where id=?";
-//
-//			pst = conn.prepareStatement(sql);
-//
-//			pst.setString(1, id);
-//
-//			cnt = pst.executeUpdate();
-//
-//		} catch (Exception e) {
-//			System.out.println("삭제실패!");
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		return cnt;
-//	}
-//
-	public boolean idCheck(String name) {
+	public int update(String user_id, String user_pw) {
+
+		try {
+			connection();
+
+			String sql = "update users where id=?";
+
+			pst = conn.prepareStatement(sql);
+
+			pst.setString(1, user_id);
+			pst.setString(2, user_pw);
+
+			cnt = pst.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+
+	public ArrayList<MemberVO> selectAll() {
+
+		al = new ArrayList<MemberVO>();
+
+		try {
+			connection();
+
+			String sql = "select id, pw from users";
+
+			pst = conn.prepareStatement(sql);
+
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+
+				String get_id = rs.getString("id");
+				String get_pw = rs.getString("pw");
+				String get_nick = rs.getString("nick");
+
+				vo = new MemberVO(get_id, get_pw, get_nick);
+
+				al.add(vo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return al;
+	}
+
+	public int delete(String id) {
+
+		try {
+			connection();
+
+			String sql = "delete from users where id=?";
+
+			pst = conn.prepareStatement(sql);
+
+			pst.setString(1, id);
+
+			cnt = pst.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+
+	public boolean idCheck(String user_id) {
 
 		try {
 			connection();
@@ -197,7 +189,7 @@ public class MemberDAO {
 			
 			pst = conn.prepareStatement(sql);
 			
-			pst.setString(1, name);
+			pst.setString(1, user_id);
 			
 			rs = pst.executeQuery();
 			
@@ -207,7 +199,6 @@ public class MemberDAO {
 					check = false;
 				}
 			} catch (Exception e) {
-			System.out.println("로그인실패!");
 			e.printStackTrace();
 		} finally {
 			close();

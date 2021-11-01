@@ -16,18 +16,16 @@ public class Delete extends HttpServlet {
 
 		request.setCharacterEncoding("euc-kr");
 
-		String id = request.getParameter("id");
+		String user_id = request.getParameter("user_id");
 
 		MemberDAO dao = new MemberDAO();
 
-//		int cnt = dao.delete(id);
+		int cnt = dao.delete(user_id);
 
-//		if (cnt > 0) {
-//			System.out.println("삭제성공!");
-//			response.sendRedirect(".jsp"); // 수정
-//		} else {
-//			System.out.println("삭제실패!");
-//			response.sendRedirect(".jsp"); // 수정
-//		}
+		if (cnt > 0) {
+			response.sendRedirect("main.jsp");
+		} else {
+			response.sendRedirect("main.jsp");
+		}
 	}
 }

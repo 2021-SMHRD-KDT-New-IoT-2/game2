@@ -22,29 +22,28 @@ public class Update extends HttpServlet {
 		
 		MemberVO vo = (MemberVO)session.getAttribute("member");
 		
-//		String id = vo.getId();
+		String id = vo.getUser_id();
 		
-		String Id = request.getParameter("id"); // 소문자를 썼을 때 오류가 나는 이유
-		String pw = request.getParameter("pw");
-		String nick = request.getParameter("nick");
+		String user_no = request.getParameter("user_no");
+		String user_id = request.getParameter("user_id");
+		String user_pw = request.getParameter("user_pw");
 		
 		
 		MemberDAO dao = new MemberDAO();
 		
-//		int cnt = dao.update(id, pw, nick);
+		int cnt = dao.update(user_id, user_pw);
 		
-//		if (cnt > 0) {
-//			System.out.println("수정성공!");
-//			
-//			MemberVO vo2 = new MemberVO(id, pw, nick);
-//			
-//			session.setAttribute("member", vo2);
-//			
-//			response.sendRedirect(".jsp"); // 수정
-//		} else {
-//			System.out.println("수정실패!");
-//			response.sendRedirect(".jsp"); // 수정
-//		}
+		if (cnt > 0) {
+
+			MemberVO vo2 = new MemberVO(user_no, user_id, user_pw);
+			
+			session.setAttribute("member", vo2);
+			
+			response.sendRedirect("main.jsp");
+		} else {
+
+			response.sendRedirect("main.jsp");
+		}
 	}
 
 }

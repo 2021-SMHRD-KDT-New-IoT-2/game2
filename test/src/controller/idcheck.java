@@ -18,13 +18,13 @@ public class idcheck extends HttpServlet {
 		
 		request.setCharacterEncoding("euc-kr");
 
-		String id = request.getParameter("id");
+		String user_id = request.getParameter("user_id");
 	
-		System.out.println(id);
+		System.out.println(user_id);
 		
 		MemberDAO dao = new MemberDAO();
 		
-		boolean check = dao.idCheck(id);
+		boolean check = dao.idCheck(user_id);
 		
 		PrintWriter out = response.getWriter();
 

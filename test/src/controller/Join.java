@@ -26,7 +26,6 @@ public class Join extends HttpServlet {
 		int cnt = dao.Join(user_id, user_pw);
 
 		if (cnt > 0) {
-			System.out.println("가입성공!");
 
 			RequestDispatcher rd = request.getRequestDispatcher("index.html");
 
@@ -35,7 +34,7 @@ public class Join extends HttpServlet {
 			rd.forward(request, response);
 
 		} else {
-			System.out.println("가입실패!");
+
 			response.sendRedirect("index.html"); // 수정
 		}
 	}

@@ -99,7 +99,7 @@
             color: #fff;
             font-size: 16px;
         }
-        .info  form input:nth-of-type(1){
+        .info form input:nth-of-type(1){
             width: 70%;
             height: 30px;
             border: none;
@@ -110,17 +110,17 @@
             font-size: 18px;
             margin-bottom: 10px;
         }
-        .info  form input:nth-of-type(2){
+        .info form input:nth-of-type(2){
             width: 100px;
             height: 30px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-        .info  form input:nth-of-type(1)::placeholder{
+        .info form input:nth-of-type(1)::placeholder{
             color: #999;
         }
-        .info  form input:nth-of-type(1):focus{
+        .info form input:nth-of-type(1):focus{
             background-color: rgba(50, 50, 50, 0.7);
         }
         .mypage_close {
