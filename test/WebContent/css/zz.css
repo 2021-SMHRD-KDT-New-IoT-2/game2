@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'gdgd';
+  src: url(../fonts/DungGeunMo.ttf) format('truetype');
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../img/bg.jpg) no-repeat;
+  background-color: #000;
+  background-position: center;
+  background-size: 70%;
+  overflow: hidden;
+  color: #fff;
+  overflow-x: visible;
+  overflow-y: auto;
+  font-family: 'gdgd' !important;
+}
+.logo {
+  width: 426px;
+  height: 100px;
+}
+.logo img {
+  height: 100%;
+}
+.wrap {
+  width: 60%;
+  height: 100%;
+  border: 1px solid #000;
+  margin: 0 auto;
+}
+.wrap table {
+  width: 100%;
+}
+.wrap caption {
+  width: 100%;
+  height: 60px;
+}
+.wrap caption span {
+  font-size: 32px;
+  font-weight: bold;
+}
+.wrap tr {
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+}
+.wrap tr:first-child {
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+.wrap tr:first-child ~ tr {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+.wrap th {
+  font-size: 22px;
+}
+.wrap td {
+  font-size: 18px;
+}

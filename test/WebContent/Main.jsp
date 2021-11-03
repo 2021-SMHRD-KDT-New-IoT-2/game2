@@ -53,7 +53,7 @@
         </div>
         <span class="wc">WELCOME!<br> Your number is <%=vo.getUser_no() %></span>
         <%if(vo.getUser_id().equals("admin")) {%>
-           	<a href="#" class="admin">蜡历 包府</a>
+           	<a href="Select.jsp" class="admin">蜡历 包府</a>
 			<%} %>
         <%} %>
     </div>
