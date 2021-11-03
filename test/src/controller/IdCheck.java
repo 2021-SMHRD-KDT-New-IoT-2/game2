@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.MemberDAO;
+import model.UserDAO;
 
-@WebServlet("/idcheck")
-public class idcheck extends HttpServlet {
+@WebServlet("/IdCheck")
+public class IdCheck extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -22,7 +22,7 @@ public class idcheck extends HttpServlet {
 	
 		System.out.println(user_id);
 		
-		MemberDAO dao = new MemberDAO();
+		UserDAO dao = new UserDAO();
 		
 		boolean check = dao.idCheck(user_id);
 		

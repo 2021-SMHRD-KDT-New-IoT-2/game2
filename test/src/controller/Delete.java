@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.MemberDAO;
+import model.UserDAO;
 
 @WebServlet("/Delete")
 public class Delete extends HttpServlet {
@@ -18,14 +18,16 @@ public class Delete extends HttpServlet {
 
 		String user_id = request.getParameter("user_id");
 
-		MemberDAO dao = new MemberDAO();
+		UserDAO dao = new UserDAO();
 
 		int cnt = dao.delete(user_id);
 
 		if (cnt > 0) {
-			response.sendRedirect("main.jsp");
+			System.out.println("삭제성공!");
+			response.sendRedirect("Select.jsp");
 		} else {
-			response.sendRedirect("main.jsp");
+			System.out.println("삭제실패!");
+			response.sendRedirect("Select.jsp");
 		}
 	}
 }

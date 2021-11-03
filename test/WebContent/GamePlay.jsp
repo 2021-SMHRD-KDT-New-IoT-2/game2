@@ -49,6 +49,7 @@
         height: 600px;
         background-color: #fff;
         transform: translateY(-5%);
+
     }
     .rank{
         width: 500px;
@@ -110,7 +111,7 @@
     
     <div class="main">
         <div class="play">
-
+<%@include file = "index.html" %>
         </div>
         <div class="rank">
             <span>RANK</span>

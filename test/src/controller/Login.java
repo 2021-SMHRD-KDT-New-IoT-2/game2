@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberDAO;
-import model.MemberVO;
+import model.UserDAO;
+import model.UserVO;
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
@@ -22,9 +22,9 @@ public class Login extends HttpServlet {
 		String user_id = request.getParameter("id");
 		String user_pw = request.getParameter("pw");
 
-		MemberDAO dao = new MemberDAO();
+		UserDAO dao = new UserDAO();
 
-		MemberVO vo = dao.login(user_id, user_pw);
+		UserVO vo = dao.login(user_id, user_pw);
 
 		if (vo != null) {
 			System.out.println("로그인성공");

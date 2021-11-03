@@ -1,16 +1,13 @@
 package model;
 
-public class MemberVO {
+public class UserVO {
 	
 	private String user_no;
 	private String user_id;
-	private String user_pw;
 	
-	public MemberVO (String user_no, String user_id, String user_pw) {
+	public UserVO (String user_no, String user_id) {
 		this.user_no = user_no;
 		this.user_id = user_id;
-		this.user_pw = user_pw;
-		
 	}
 
 	public String getUser_no() {
@@ -20,11 +17,6 @@ public class MemberVO {
 	public String getUser_id() {
 		return user_id;
 	}
-
-	public String getUser_pw() {
-		return user_pw;
-	}
-	
 
 	
 

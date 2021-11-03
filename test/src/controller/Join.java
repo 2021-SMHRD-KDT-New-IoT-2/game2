@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.MemberDAO;
+import model.UserDAO;
 
 @WebServlet("/Join")
 public class Join extends HttpServlet {
@@ -21,7 +21,7 @@ public class Join extends HttpServlet {
 		String user_id = request.getParameter("id");
 		String user_pw = request.getParameter("pw");
 
-		MemberDAO dao = new MemberDAO();
+		UserDAO dao = new UserDAO();
 
 		int cnt = dao.Join(user_id, user_pw);
 

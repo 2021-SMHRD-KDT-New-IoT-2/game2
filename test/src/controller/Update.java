@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberDAO;
-import model.MemberVO;
+import model.UserDAO;
+import model.UserVO;
 
 @WebServlet("/Update")
 public class Update extends HttpServlet {
@@ -20,29 +20,32 @@ public class Update extends HttpServlet {
 		
 		HttpSession session = request.getSession(); 
 		
-		MemberVO vo = (MemberVO)session.getAttribute("member");
+		UserVO vo = (UserVO)session.getAttribute("user");
 		
-		String pw = vo.getUser_pw();
+		String user_no = vo.getUser_no();
+		String user_id = vo.getUser_id();
+//		String pw = vo.getUser_pw();
 		
-		String user_no = request.getParameter("user_no");
-		String user_id = request.getParameter("user_id");
-		String user_pw = request.getParameter("user_pw");
+//		String user_no = request.getParameter("user_no");
+//		String user_id = request.getParameter("user_id");
+		String user_pw = request.getParameter("pw");
 		
 		
-		MemberDAO dao = new MemberDAO();
+		UserDAO dao = new UserDAO();
 		
-		int cnt = dao.update(user_pw);
+		int cnt = dao.update(user_id, user_pw);
 		
 		if (cnt > 0) {
-
-			MemberVO vo2 = new MemberVO(user_no, user_id, user_pw);
+			System.out.println("수정성공!");
 			
-			session.setAttribute("member", vo2);
+			UserVO vo2 = new UserVO(user_no, user_id);
 			
-			response.sendRedirect("main.jsp");
+			session.setAttribute("user", vo2);
+			
+			response.sendRedirect("Main.jsp");
 		} else {
-
-			response.sendRedirect("main.jsp");
+			System.out.println("수정실패!");
+			response.sendRedirect("Main.jsp");
 		}
 	}
 

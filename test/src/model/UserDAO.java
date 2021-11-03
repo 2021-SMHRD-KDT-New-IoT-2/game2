@@ -5,15 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import model.MemberVO;
+import model.UserVO;
 
-public class MemberDAO {
+public class UserDAO {
 	Connection conn = null;
 	PreparedStatement pst = null;
 	ResultSet rs = null;
 	int cnt = 0;
-	MemberVO vo = null;
-	ArrayList<MemberVO> al = null;
+	UserVO vo = null;
+	ArrayList<UserVO> al = null;
 	boolean check = false;
 
 	public void connection() {
@@ -73,7 +73,7 @@ public class MemberDAO {
 		return cnt;
 	}
 
-	public MemberVO login(String user_id, String user_pw) {
+	public UserVO login(String user_id, String user_pw) {
 
 		try {
 			connection();
@@ -90,9 +90,8 @@ public class MemberDAO {
 			if (rs.next()) {
 		        String get_userno = rs.getString("user_no");
 	            String get_userid = rs.getString("user_id");
-	            String get_userpw = rs.getString("user_pw");
 
-				vo = new MemberVO(get_userno, get_userid, get_userpw);
+				vo = new UserVO(get_userno, get_userid);
 
 			} else {
 				
@@ -105,16 +104,17 @@ public class MemberDAO {
 		return vo;
 	}
 
-	public int update(String user_pw) {
+	public int update(String user_id, String user_pw) {
 
 		try {
 			connection();
 
-			String sql = "update users where pw=?";
+			String sql = "update users set user_pw = ? where user_id = ?";
 
 			pst = conn.prepareStatement(sql);
 
 			pst.setString(1, user_pw);
+			pst.setString(2, user_id);
 
 			cnt = pst.executeUpdate();
 
@@ -126,14 +126,14 @@ public class MemberDAO {
 		return cnt;
 	}
 
-	public ArrayList<MemberVO> selectAll() {
+	public ArrayList<UserVO> selectAll() {
 
-		al = new ArrayList<MemberVO>();
+		al = new ArrayList<UserVO>();
 
 		try {
 			connection();
 
-			String sql = "select id, pw from users";
+			String sql = "select user_no, user_id from users";
 
 			pst = conn.prepareStatement(sql);
 
@@ -141,11 +141,10 @@ public class MemberDAO {
 
 			while (rs.next()) {
 
-				String get_id = rs.getString("id");
-				String get_pw = rs.getString("pw");
-				String get_nick = rs.getString("nick");
+				String get_no = rs.getString("user_no");
+				String get_id = rs.getString("user_id");
 
-				vo = new MemberVO(get_id, get_pw, get_nick);
+				vo = new UserVO(get_no, get_id);
 
 				al.add(vo);
 			}
@@ -158,16 +157,16 @@ public class MemberDAO {
 		return al;
 	}
 
-	public int delete(String id) {
+	public int delete(String user_id) {
 
 		try {
 			connection();
 
-			String sql = "delete from users where id=?";
+			String sql = "delete from users where user_id = ?";
 
 			pst = conn.prepareStatement(sql);
 
-			pst.setString(1, id);
+			pst.setString(1, user_id);
 
 			cnt = pst.executeUpdate();
 

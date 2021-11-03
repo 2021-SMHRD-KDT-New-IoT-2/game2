@@ -1,4 +1,4 @@
-<%@page import="model.MemberVO"%>
+<%@page import="model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
 <body>
 	<%
 		// 현재 로그인 상태 판별 (vo == null => 비로그인상태)
-		MemberVO vo = (MemberVO)session.getAttribute("user");
+			UserVO vo = (UserVO)session.getAttribute("user");
 	%>
 	<div class="wrap">
         <div class="circle">
@@ -99,7 +99,7 @@
 		$.ajax({
 		  type : "post", //데이터 전송(요청) 방식
 		  data : {"id" : input.value}, //전송하는 데이터
-		  url : "idcheck", //데이터를 전송하는(요청하는) 서버 페이지 url
+		  url : "IdCheck", //데이터를 전송하는(요청하는) 서버 페이지 url
 		  dataType : "text", //응답데이터의 형식
 		  success : function(data){ //통신 성공
 			  var sp_result = document.getElementById("sp_result");

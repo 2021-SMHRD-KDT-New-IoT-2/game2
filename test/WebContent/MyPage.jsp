@@ -1,3 +1,4 @@
+<%@page import="model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -160,6 +161,10 @@
     </style>
 </head>
 <body>
+	<%
+		// 현재 로그인 상태 판별 (vo == null => 비로그인상태)
+			UserVO vo = (UserVO)session.getAttribute("user");
+	%>
     <header class="header">
         <figure>
             <a href="Main.jsp"><img src="img/logo3.png" alt=""></a>
@@ -172,7 +177,7 @@
                 <span>내 정보</span>
                 <ul>
                     <li>번호</li>
-                    <li>1</li>
+                    <li><%=vo.getUser_no() %></li>
                 </ul>
                 <ul>
                     <li>점수</li>
@@ -187,8 +192,8 @@
             
             <div class="info">
                 <span>정보 수정</span>
-                <form action="" method="">
-                    <span>아이디 띄울곳</span>
+                <form action="Update" method="post">
+                    <span style="font-size: 30px"><%=vo.getUser_id() %></span>
                     <input type="password" name="pw" placeholder="변경할 비밀번호">
                     <input type="submit" value="변경">
                 </form>
