@@ -18,7 +18,7 @@ public class idcheck extends HttpServlet {
 		
 		request.setCharacterEncoding("euc-kr");
 
-		String user_id = request.getParameter("user_id");
+		String user_id = request.getParameter("id");
 	
 		System.out.println(user_id);
 		

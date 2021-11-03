@@ -43,7 +43,7 @@
             </div>
         </div>
         <%}else{ %>
-        <div class="squ" style="width:400px;'">
+        <div class="squ" style="width:400px;">
             <div style="width:200px">
                 <a href="MyPage.jsp">마이페이지</a>
             </div>

@@ -26,8 +26,10 @@ public class Join extends HttpServlet {
 		int cnt = dao.Join(user_id, user_pw);
 
 		if (cnt > 0) {
-
-			RequestDispatcher rd = request.getRequestDispatcher("index.html");
+			
+			System.out.println("가입성공");
+			
+			RequestDispatcher rd = request.getRequestDispatcher("Main.jsp");
 
 			request.setAttribute("id", user_id);
 
@@ -35,7 +37,8 @@ public class Join extends HttpServlet {
 
 		} else {
 
-			response.sendRedirect("index.html"); // 수정
+			response.sendRedirect("Main.jsp");
+			System.out.println("가입실패");
 		}
 	}
 }
