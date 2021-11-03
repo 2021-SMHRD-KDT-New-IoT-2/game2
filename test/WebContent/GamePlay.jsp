@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="css/reset.css">
 </head>
 <style>
-    
+    @font-face {
+		font-family: 'gdgd';
+		src: url(fonts/DungGeunMo.ttf) format('truetype');
+	}
     body{
         height: 100vh;
         width: 100%;
@@ -18,12 +21,22 @@
         url(img/cap.png) no-repeat;
         background-size: cover;
         overflow: hidden;
+        font-family: 'gdgd' !important;
     }
     .header{
         height: 100px;
         width: 100%;
-        background-color: #000;
     }
+    .header figure{
+        	width: 426px;
+        	height: 100%;
+        }
+        .header a{
+        	height: 100%;
+        }
+        .header a img{
+        	height: 100px;
+       	}
     .main{
         width: 100%;
         height: 100%;
@@ -91,7 +104,7 @@
 <body>
     <header class="header">
         <figure>
-            <a href="Main.jsp"><img src="img/logo.png" alt="#"></a>
+            <a href="Main.jsp"><img src="img/logo3.png" alt="#"></a>
         </figure>
     </header>
     

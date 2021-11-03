@@ -9,6 +9,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
     <style>
+    	@font-face {
+  			font-family: 'gdgd';
+  			src: url(fonts/DungGeunMo.ttf) format('truetype');
+		}
         body{
             width: 100%;
             height: 100vh;
@@ -18,12 +22,22 @@
             background-position: center;
             background-size: 70%;
             overflow: hidden;
+            font-family: 'gdgd' !important;
         }
         .header{
             width: 100%;
             height: 100px;
-            background-color: #000;
         }
+        .header figure{
+        	width: 426px;
+        	height: 100%;
+        }
+        .header a{
+        	height: 100%;
+        }
+        .header a img{
+        	height: 100px;
+       	}
         .main{
             width: 100%;
             height: 100%;
@@ -148,7 +162,7 @@
 <body>
     <header class="header">
         <figure>
-            <a href="Main.jsp"><img src="img/logo.png" alt=""></a>
+            <a href="Main.jsp"><img src="img/logo3.png" alt=""></a>
         </figure>
     </header>
 

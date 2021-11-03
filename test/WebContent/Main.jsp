@@ -6,17 +6,16 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/fonts.css">
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/script.js" defer></script>
 <style>
-.login>form>input:nth-child(1),.login>form>input:nth-child(2){
-	color: #fff;
-	font-size: 18px;
-}
+	.login>form>input:nth-child(1),.login>form>input:nth-child(2){
+		color: #fff;
+		font-size: 18px;
+	}
 </style>
 
 </head>
