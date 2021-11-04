@@ -55,7 +55,7 @@ public class UserDAO {
 		try {
 			connection();
 
-			String sql = "insert into users values (member_seq.nextval,?,?)";
+			String sql = "insert into users values (user_seq.nextval,?,?)";
 
 			pst = conn.prepareStatement(sql);
  
